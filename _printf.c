@@ -28,6 +28,7 @@ int _printf(const char *format, ...)
 				if (format[i] == spec[j].f_s[1])
 				{
 					tmp = spec[j].func(ptr);
+					free(tmp);
 					length = strlen(tmp);
 					for (k = 0; k < length; k++)
 					{
