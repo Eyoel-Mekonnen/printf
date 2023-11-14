@@ -21,12 +21,7 @@ char *print_string(va_list ptr);
 char *print_integer(va_list ptr);
 int string_length(char *tmp);
 char *print_unsigned_integer(va_list ptr);
-char *print_octal(va_list ptr);
 char *print_binary(va_list ptr);
-char *print_hexalower(va_list ptr);
-char *print_hexacapital(va_list ptr);
-char *print_nonchar(va_list ptr);
-char *print_address(va_list ptr);
 char *reverse_string(va_list ptr);
 int _printf(const char *format, ...);
 #endif
