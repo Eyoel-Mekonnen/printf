@@ -12,6 +12,8 @@ char *print_binary(va_list ptr)
 	char *binary;
 
 	num = va_arg(ptr, unsigned int);
+	if (num)
+		return (NULL);
 	tmp = num;
 	while (tmp)
 	{
