@@ -16,7 +16,15 @@ int main(void)
 	len2 = printf("Let's try to printf a simple sentence.\n");
 	_printf("Length:[%d, %d]\n", len2, len2);
 	printf("There are %d %% in a hundred\n", 50);
-	_printf("There are %d %% in a hundred\n", 50);
+	_printf("There are %d %d %d %d in a hundred\n", -50, 100, 200, 400);
+	_printf("There are %i %i %i %i in a hundred\n", -50, 100, 200, 400);
+	printf("There are %i %i %i %i in a hundred\n", -50, 100, 200, 400);
+	_printf("");
+	_printf("A character: %c\n", 'X');
+	_printf("A string: %s\n", "Hello World");
+	_printf("Percent sign: %%\n");
+	_printf("Escape sequences: \n\t\\\n\n");
+	_printf("Negative:[%d]\n", -762534);
 	_printf("%d\n", 762534);
 	_printf("%d\n", 8956321);
 	_printf("Negative:[%d]\n", -762534);
