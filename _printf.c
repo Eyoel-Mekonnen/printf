@@ -46,6 +46,7 @@ int _printf(const char *format, ...)
 				else
 					j++;
 			}
+			free(tmp);
 		}
 		else if (format[i] != '%' && format[i] != '\0')
 		{
