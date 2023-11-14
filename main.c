@@ -15,6 +15,8 @@ int main(void)
 	len1 = -25;
 	len2 = printf("Let's try to printf a simple sentence.\n");
 	_printf("Length:[%d, %d]\n", len2, len2);
+	printf("There are %d %% in a hundred\n", 50);
+	_printf("There are %d %% in a hundred\n", 50);
 	_printf("%d\n", 762534);
 	_printf("%d\n", 8956321);
 	_printf("Negative:[%d]\n", -762534);
@@ -33,5 +35,7 @@ int main(void)
 	  _printf("%r\n", "Hello");
 	  printf("%+d\n", len1);
 	  printf("%+x\n", len1);
+	  printf("There are %d %% in a hundred\n", 50);
+	  _printf("There are %d %% in a hundred\n", 50);
 	return (0);
 }

@@ -22,6 +22,12 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
+			if (format[i] == '%')
+			{
+				buffer[buffpos] = '%';
+				buffpos++;
+				continue;
+			}
 			j = 0;
 			while (spec[j].f_s)
 			{
