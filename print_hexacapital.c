@@ -1,4 +1,4 @@
-#include "main1.h"
+#include "main.h"
 /**
  * hexacap - converts digit to capital alpha
  * @num: the number passed.

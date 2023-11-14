@@ -1,4 +1,4 @@
-#include "main1.h"
+#include "main.h"
 /**
  * print_octal - prints octal.
  * @ptr: recieves pointer of type va_list.

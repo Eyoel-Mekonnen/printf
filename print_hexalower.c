@@ -1,4 +1,4 @@
-#include "main1.h"
+#include "main.h"
 /**
  * hexa - convert to hex alpha.
  * @num: the number passed.

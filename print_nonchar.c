@@ -1,4 +1,4 @@
-#include "main1.h"
+#include "main.h"
 int hexxa(int num)
 {
 	char c;
