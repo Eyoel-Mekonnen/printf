@@ -38,19 +38,16 @@ int main(void)
 	  _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
 	  _printf("%S\n", "Best\nSchool");
 	  _printf("%r\n", "Hello");
-	  _printf("%p %p\n", len2, len1);
-	  printf("%p  %p\n", len2, len1);
+	  _printf("%p %p\n", len1, len1);
 	  _printf("%r\n", "Hello");
-	  printf("%+d\n", len1);
-	  printf("%+x\n", len1);
 	  printf("There are %d %% in a hundred\n", 50);
 	  _printf("There are %d %% in a hundred\n", 50);
 	  len2 = printf("Percent:[%%]\n");
     _printf("Len:[%d]\n", len2);
     _printf("%R\n", "HI");
     _printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
-    _printf("%c", '\0');
-    _printf("%");
     _printf("%!\n");
+    _printf("%K\n");
+    _printf("%");
 	return (0);
 }

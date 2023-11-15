@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 		{"%c", print_char}, {"%s", print_string}, {"%d", print_integer}, {"%u", print_unsigned_integer}, {"%b", print_binary}, {"%r", reverse_string}, {"%i", print_integer}, {"%o", print_octal},
 		{"%x", print_hexalower}, {"%X", print_hexacapital}, {"%S", print_nonchar}, {"%p", print_address}, {"%R", print_rot13}
 	};
-	 int i, j, k, length, buffpos = 0;
+	int i, j, k, length, buffpos = 0;
 	char buffer[2048];
 	char *tmp;
 	va_list ptr;
@@ -22,9 +22,9 @@ int _printf(const char *format, ...)
 	{
 		if ((format == NULL) || (format[0] == '%' && format[1] == '\0') || (!format))
 		{
-			return (-1);
+			return ('\0');
 		}
-		if (format[i] == '%')
+		else if (format[i] == '%')
 		{
 			i++;
 			if (format[i] == '%')
@@ -34,11 +34,13 @@ int _printf(const char *format, ...)
 				continue;
 			}
 			else if (format[i] == '\0')
+			{
 				return (-1);
+			}
 			j = 0;
 			while (spec[j].f_s)
 			{
-				if (format[i] == spec[j].f_s[1])
+				if ((format[i] == spec[j].f_s[1]) && (format[i - 1] == spec[j].f_s[0]))
 				{
 					tmp = spec[j].func(ptr);
 					length = strlen(tmp);
@@ -46,23 +48,26 @@ int _printf(const char *format, ...)
 					{
 						buffer[buffpos] = tmp[k];
 						buffpos++;
-					}
-					break;
 				}
-				else if (format == NULL)
-				{
-					return (-1);
+					free(tmp);
+					break;
 				}
 				else
 					j++;
-
+				if (j == 13 && format[i - 1] == '%')
+				{
+					buffer[buffpos] = '%';
+					buffpos++;
+					buffer[buffpos] = format[i];
+					buffpos++;
+					break;
+				} 
 			}
-			free(tmp);
 		}
-		else if (format[i] != '%' && format[i] != '\0')
+		else if(format[i] != '%' && format[i] != '\0')
 		{
-			buffer[buffpos] = format[i];
-			buffpos++;
+				buffer[buffpos] = format[i];
+				buffpos++;
 		}
 	}
 	buffer[buffpos] = '\0';

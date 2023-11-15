@@ -17,7 +17,8 @@ char *print_char(va_list ptr)
 		return (str);
 	}
 	str = (char *)malloc(sizeof(char) + 1);
-	if (str == NULL || c == '\0')
+	if (str == NULL)
+		return (NULL);
 	str[0] = c;
 	str[1] = '\0';
 	return (str);
