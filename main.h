@@ -29,5 +29,6 @@ char *print_nonchar(va_list ptr);
 char *print_address(va_list ptr);
 char *reverse_string(va_list ptr);
 char *print_rot13(va_list ptr);
+int _putchar(char c);
 int _printf(const char *format, ...);
 #endif

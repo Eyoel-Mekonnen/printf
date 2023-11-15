@@ -13,13 +13,17 @@ int _printf(const char *format, ...)
 		{"%x", print_hexalower}, {"%X", print_hexacapital}, {"%S", print_nonchar}, {"%p", print_address}, {"%R", print_rot13}
 	};
 	 int i, j, k, length, buffpos = 0;
-	char buffer[1024];
+	char buffer[2048];
 	char *tmp;
 	va_list ptr;
 
 	va_start(ptr, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
+		if ((format == NULL) || (format[0] == '%' && format[1] == '\0') || (!format))
+		{
+			return (-1);
+		}
 		if (format[i] == '%')
 		{
 			i++;
@@ -29,6 +33,8 @@ int _printf(const char *format, ...)
 				buffpos++;
 				continue;
 			}
+			else if (format[i] == '\0')
+				return (-1);
 			j = 0;
 			while (spec[j].f_s)
 			{
@@ -43,8 +49,13 @@ int _printf(const char *format, ...)
 					}
 					break;
 				}
+				else if (format == NULL)
+				{
+					return (-1);
+				}
 				else
 					j++;
+
 			}
 			free(tmp);
 		}
