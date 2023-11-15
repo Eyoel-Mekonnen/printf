@@ -8,21 +8,30 @@
 char *print_integer(va_list ptr)
 {
 	char *integer;
-	int i, num, count = 0, checker = 0;
-	unsigned int positive, tmp;
+	int i, num, tmp, count = 0, checker = 0;
+	unsigned int positive;
 
 	num = va_arg(ptr, int);
 	printf("%d\n", num);
+	
 	if (num < 0)
 	{
 		positive = (-1) * num;
 		checker++;
 	}
-	if (num > 0)
-		positive = num;
-	tmp = positive;
-	printf("%u positive \n", positive);
-	while (tmp)
+	
+	
+	tmp = num;
+	if (num < 0)
+	{
+		tmp = positive;
+		while (tmp)
+		{
+			tmp = tmp / 10;
+			count++;
+		}
+	}
+	while (tmp && num > 0)
 	{
 		tmp = tmp / 10;
 		count++;
@@ -34,16 +43,25 @@ char *print_integer(va_list ptr)
 		integer = (char *)malloc(sizeof(char) * (count + 1));
 	if (integer == NULL)
 		return (NULL);
-	for (i = (count - 1); i >= 0; i--)
+	if (num > 0)
 	{
-		integer[i] = (positive % 10) + '0';
-		positive = positive / 10;
-		if (i - 1 == 0 && checker > 0)
+		for (i = (count - 1); i >= 0; i--)
 		{
-			integer[0] = '-';
-			break;
+			integer[i] = (num % 10) + '0';
+			num = num / 10;
 		}
-	
+	}
+	if (num < 0)
+	{
+		for (i = (count - 1); i >= 0; i--)
+		{
+			integer[i] = (positive % 10) + '0';
+			positive = positive / 10;
+			if (i == 0)
+			{
+				integer[i] = '-';
+			}
+		}
 	}
 	integer[count] = '\0';
 	return (integer);
