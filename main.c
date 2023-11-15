@@ -13,6 +13,7 @@ int main(void)
 	int len2, len1;
 	ui = (unsigned int)INT_MAX + 1024;
 	len1 = -25;
+	
 	len2 = printf("Let's try to printf a simple sentence.\n");
 	_printf("Length:[%d, %d]\n", len2, len2);
 	printf("There are %d %% in a hundred\n", 50);
@@ -49,5 +50,8 @@ int main(void)
     _printf("%!\n");
     _printf("%K\n");
     _printf("%");
+    _printf("%c", '\0');
+    _printf("%d\n", INT_MIN);
+    _printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
 	return (0);
 }

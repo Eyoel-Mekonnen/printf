@@ -13,11 +13,12 @@ int _printf(const char *format, ...)
 		{"%x", print_hexalower}, {"%X", print_hexacapital}, {"%S", print_nonchar}, {"%p", print_address}, {"%R", print_rot13}
 	};
 	int i, j, k, length, buffpos = 0;
-	char buffer[2048];
+	char *buffer;
 	char *tmp;
 	va_list ptr;
 
 	va_start(ptr, format);
+	buffer = (char *)malloc(sizeof(char) * 1500);
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if ((format == NULL) || (format[0] == '%' && format[1] == '\0') || (!format))
@@ -72,6 +73,7 @@ int _printf(const char *format, ...)
 	}
 	buffer[buffpos] = '\0';
 	write (1,buffer, buffpos);
+	free(buffer);
 	va_end(ptr);
 	return (buffpos);
 }
