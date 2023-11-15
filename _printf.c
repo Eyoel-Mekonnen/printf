@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 {
 	type_format spec[] = {
 		{"%c", print_char}, {"%s", print_string}, {"%d", print_integer}, {"%u", print_unsigned_integer}, {"%b", print_binary}, {"%r", reverse_string}, {"%i", print_integer}, {"%o", print_octal},
-		{"%x", print_hexalower}, {"%X", print_hexacapital}, {"%S", print_nonchar}, {"%p", print_address}
+		{"%x", print_hexalower}, {"%X", print_hexacapital}, {"%S", print_nonchar}, {"%p", print_address}, {"%R", print_rot13}
 	};
 	 int i, j, k, length, buffpos = 0;
 	char buffer[1024];

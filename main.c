@@ -45,5 +45,8 @@ int main(void)
 	  printf("%+x\n", len1);
 	  printf("There are %d %% in a hundred\n", 50);
 	  _printf("There are %d %% in a hundred\n", 50);
+	  len2 = printf("Percent:[%%]\n");
+    _printf("Len:[%d]\n", len2);
+    _printf("%R\n", "HI");
 	return (0);
 }
