@@ -62,5 +62,6 @@ int main(void)
     _printf("%i\n", 1024);
     _printf("%d\n", 0);
     _printf("%d\n", 0);
+    _printf("%b", 0);
 	return (0);
 }
