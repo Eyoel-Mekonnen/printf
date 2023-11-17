@@ -23,7 +23,7 @@ char *print_integer(va_list ptr)
 		tmp = tmp / 10;
 		count++;
 	}
-	if (checker > 0)
+	if (checker > 0 || num == 0)
 	{
 		count = count + 1;
 	}
@@ -37,6 +37,14 @@ char *print_integer(va_list ptr)
 			integer[i] = (num % 10) + '0';
 			num = num / 10;
 		}
+		integer[count] = '\0';
+	}
+	else if (num == 0)
+	{
+		count = count + 1;
+		printf("%d - count\n", count);
+		integer[0] = 0 + '0';
+		integer[1] = 0 + '0';
 		integer[count] = '\0';
 	}
 	else if (num < 0)
