@@ -9,29 +9,16 @@ char *print_integer(va_list ptr)
 {
 	char *integer;
 	int i, num, tmp, count = 0, checker = 0;
-	unsigned int positive;
+	unsigned int pos;
 
 	num = va_arg(ptr, int);
-	printf("%d\n", num);
-	
 	if (num < 0)
 	{
-		positive = (-1) * num;
+		pos = (-1) * num;
 		checker++;
-	}
-	
-	
+	}		
 	tmp = num;
-	if (num < 0)
-	{
-		tmp = positive;
-		while (tmp)
-		{
-			tmp = tmp / 10;
-			count++;
-		}
-	}
-	while (tmp && num > 0)
+	while (tmp)
 	{
 		tmp = tmp / 10;
 		count++;
@@ -50,19 +37,21 @@ char *print_integer(va_list ptr)
 			integer[i] = (num % 10) + '0';
 			num = num / 10;
 		}
+		integer[count] = '\0';
 	}
-	if (num < 0)
+	else if (num < 0)
 	{
 		for (i = (count - 1); i >= 0; i--)
 		{
-			integer[i] = (positive % 10) + '0';
-			positive = positive / 10;
 			if (i == 0)
 			{
 				integer[i] = '-';
+				break;
 			}
+			integer[i] = (pos % 10) + '0';
+			pos = pos / 10;
 		}
+		integer[count] = '\0';
 	}
-	integer[count] = '\0';
 	return (integer);
 }
