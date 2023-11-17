@@ -61,5 +61,6 @@ int main(void)
     _printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
     _printf("%i\n", 1024);
     _printf("%d\n", 0);
+    _printf("%d\n", 0);
 	return (0);
 }

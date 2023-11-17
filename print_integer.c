@@ -42,7 +42,6 @@ char *print_integer(va_list ptr)
 	else if (num == 0)
 	{
 		count = count + 1;
-		printf("%d - count\n", count);
 		integer[0] = 0 + '0';
 		integer[1] = 0 + '0';
 		integer[count] = '\0';
